@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="MBS_COPI24" parallel="false">
+
+	<listeners>
+		<listener class-name="org.uncommons.reportng.HTMLReporter" />
+		<listener
+			class-name="org.uncommons.reportng.JUnitXMLReporter" />
+		<listener class-name="actions.ExtentReportListener" />
+		<listener class-name="actions.ReportNGListener" />
+		<listener class-name="actions.MethodListener" />
+	</listeners>
+
+
+	<test name="chrome">
+		<parameter name="browser" value="chrome" />
+		<classes>
+
+			<class name="testcases.F1_ATO_Order" />
+
+
+
+
+		</classes>
+	</test>
+
+
+
+</suite> 

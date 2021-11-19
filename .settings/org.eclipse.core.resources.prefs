@@ -1,0 +1,15 @@
+=\=\=\=\=\=\=
+<<<<<<<=HEAD
+>>>>>>>=31840c836825ea0f601ad730230141b337e4009e
+eclipse.preferences.version=1
+encoding//src/main/java=ISO-8859-1
+encoding//src/main/resources=UTF-8
+encoding//src/test/java=ISO-8859-1
+encoding//src/test/java/actions/AbstractTest.java=UTF-8
+encoding//src/test/java/pageObject/F01_VIEW_Admin_HomePagePageObject.java=UTF-8
+encoding//src/test/java/pageUis/F00_LoginPageUi.java=UTF-8
+encoding//src/test/java/pageUis/F01_VIEW_Admin_HomePagePageUi.java=UTF-8
+encoding//src/test/java/testcases/F00_Admin_Login.java=UTF-8
+encoding//src/test/java/testcases/F01_VIEW_Admin_HomePage.java=UTF-8
+encoding//src/test/resources=UTF-8
+encoding/<project>=UTF-8
