@@ -1,9 +1,11 @@
 package pageObject;
 
 import actions.AbstractPage;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.*;
 import pageUis.F1_AtoOrderPageUi;
 import pageUis.OrderPageUi;
+
+import java.util.List;
 
 
 public class OrderPageObject extends AbstractPage{
@@ -17,8 +19,18 @@ public class OrderPageObject extends AbstractPage{
 		waitForElementVisible(driver, OrderPageUi.F3_BTN);
 		clickToElement(driver, OrderPageUi.F3_BTN);
 	}
-
-	public void inputToHNXCode(String value) {
+	public void clickToAccountDropDown(String itemText) throws Exception {
+		waitForElementVisible(driver,OrderPageUi.ACCOUNT_DROPDOWN);
+		clickToElement(driver, OrderPageUi.ACCOUNT_DROPDOWN);
+		selectItemInCustomDropdown(driver,OrderPageUi.ACCOUNT_DROPDOWN,OrderPageUi.ACCOUNT_LIST_DROPDOWN,itemText);
+	}
+	public String getTextAccountWithTK1(){
+		waitForElementVisible(driver,OrderPageUi.ACCOUNT_NAME);
+		String accountName = getTextElement(driver,OrderPageUi.ACCOUNT_NAME);
+		String accountTK1 = accountName + "1";
+		return accountTK1;
+	}
+	public void inputToCKCode(String value) {
 		waitForElementVisible(driver, OrderPageUi.EXCHANGES_CODE_INPUT);
 		sendkeyToElement(driver, OrderPageUi.EXCHANGES_CODE_INPUT, value);
 		waitForElementVisible(driver, OrderPageUi.EXCHANGES_CODE_BTN);
@@ -29,6 +41,12 @@ public class OrderPageObject extends AbstractPage{
 		waitForElementVisible(driver, OrderPageUi.PRICE_INPUT);
 		clickToElement(driver, OrderPageUi.PRICE_INPUT);
 	}
+
+	public void clickToMassInput() {
+		waitForElementVisible(driver, OrderPageUi.MASS_INPUT);
+		clickToElement(driver, OrderPageUi.MASS_INPUT);
+	}
+
 	public void sendKeyMassInput(String value) {
 		waitForElementVisible(driver, OrderPageUi.MASS_INPUT);
 		sendkeyToElement(driver,OrderPageUi.MASS_INPUT,value);
@@ -45,6 +63,23 @@ public class OrderPageObject extends AbstractPage{
 	public void clearPriceInput() {
 		waitForElementVisible(driver,OrderPageUi.PRICE_INPUT);
 		clearElementInTextbox(driver,OrderPageUi.PRICE_INPUT);
+	}
+
+	public void clearPriceInputWithJavascript() {
+		waitForElementVisible(driver,OrderPageUi.PRICE_INPUT);
+		JavascriptExecutor js = (JavascriptExecutor)driver;
+		js.executeScript("arguments[0].value = '';", OrderPageUi.PRICE_INPUT);
+	}
+
+
+	public void clicktoBuyConfirm() {
+		waitForElementVisible(driver, OrderPageUi.BUY_VERIFY_BTN);
+		clickToElement(driver, OrderPageUi.BUY_VERIFY_BTN);
+	}
+
+	public void senkeyOTPCode(String Value) {
+		waitForElementVisible(driver, OrderPageUi.SENDKEY_OTP_CODE);
+		sendkeyToElement(driver, OrderPageUi.SENDKEY_OTP_CODE,Value);
 	}
 
 	public void clickToMpOrderPrice() {
@@ -66,4 +101,23 @@ public class OrderPageObject extends AbstractPage{
 		clickToElement(driver,OrderPageUi.MTL_PRICE_BTN);
 	}
 
+	public void clearMassInput() {
+		waitForElementVisible(driver, OrderPageUi.MASS_INPUT);
+		clearElementInTextbox(driver,OrderPageUi.MASS_INPUT);
+	}
+
+	public void clickToSMSOTP() {
+		waitForElementVisible(driver, OrderPageUi.SMS_OTP_BTN);
+		clickToElement(driver,OrderPageUi.SMS_OTP_BTN);
+	}
+
+	public void clickConfirmBtn() {
+		waitForElementVisible(driver, OrderPageUi.SMS_CONFIRM_BTN);
+		clickToElement(driver,OrderPageUi.SMS_CONFIRM_BTN);
+	}
+
+	public void clickToTCPriceTxt() {
+		waitForElementVisible(driver, OrderPageUi.GETTEXT_TC_PRICE);
+		clickToElement(driver,OrderPageUi.GETTEXT_TC_PRICE);
+	}
 }

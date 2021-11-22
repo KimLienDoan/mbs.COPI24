@@ -113,9 +113,9 @@ public class AbstractPage {
 
 		element = driver.findElement(By.xpath(parentdropdownlocator));
 		((JavascriptExecutor) driver).executeScript("arguments[0].click();", element);
-		Thread.sleep(1000);
+		Thread.sleep(500);
 
-		WebDriverWait driverwait = new WebDriverWait(driver, 3000);
+		WebDriverWait driverwait = new WebDriverWait(driver, 500);
 		driverwait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath(allItemDropdown)));
 
 		elements = driver.findElements(By.xpath(allItemDropdown));
@@ -124,7 +124,7 @@ public class AbstractPage {
 			String ItemText = elements.get(i).getText();
 			if (ItemText.equals(ExpectedText)) {
 				((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", elements.get(i));
-				Thread.sleep(1000);
+				Thread.sleep(500);
 				if (elements.get(i).isDisplayed()) {
 					elements.get(i).click();
 				} else {
