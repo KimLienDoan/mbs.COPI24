@@ -30,4 +30,5 @@ public class OrderPageUi {
 
 
 	public static final String DISPLAY_OTP = "//div[text()='Xác thực OTP']";
+
 }

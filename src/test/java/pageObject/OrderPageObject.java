@@ -144,15 +144,21 @@ public class OrderPageObject extends AbstractPage{
 	public boolean isDisplayedOTP() {
 		overrideGlobalTimeout(driver, Constants.SHORT_TIME_OUT);
 		List<WebElement> elements = driver.findElements(By.xpath(OrderPageUi.DISPLAY_OTP));
-		if (elements.size() == 0)
-		{
+		if (elements.size() == 0) {
 			return false;
 		}
-		else
-		{
+		else {
 			return true;
 		}
 
 	}
 
+	public void clickToAtcOrderPrice() {
+		waitForElementVisible(driver,F1_AtoOrderPageUi.ATC_PRICE_INPUT);
+		clickToElement(driver,F1_AtoOrderPageUi.ATC_PRICE_INPUT);
+	}
+	public void clickToPloOrderPrice() {
+		waitForElementVisible(driver,F1_AtoOrderPageUi.PLO_PRICE_INPUT);
+		clickToElement(driver,F1_AtoOrderPageUi.PLO_PRICE_INPUT);
+	}
 }

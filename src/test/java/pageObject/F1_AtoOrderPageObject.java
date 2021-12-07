@@ -29,23 +29,19 @@ public class F1_AtoOrderPageObject extends AbstractPage{
 
 
 	public boolean verifyNoDisplayMP() {
-		waitForElementVisible(driver,F1_AtoOrderPageUi.VERIFY_MP_PRICE_BTN);
-		return isControlDisplayed(driver,F1_AtoOrderPageUi.VERIFY_MP_PRICE_BTN);
+		return isControlUndisplayed(driver,F1_AtoOrderPageUi.MP_PRICE_BTN);
 	}
 
 	public boolean verifyNoDisplayMOK() {
-		waitForElementVisible(driver,F1_AtoOrderPageUi.VERIFY_MP_PRICE_BTN);
-		return isControlDisplayed(driver,F1_AtoOrderPageUi.VERIFY_MP_PRICE_BTN);
+		return isControlUndisplayed(driver,F1_AtoOrderPageUi.MP_PRICE_BTN);
 	}
 
 	public boolean verifyNoDisplayMAK() {
-		waitForElementVisible(driver,F1_AtoOrderPageUi.VERIFY_MAK_PRICE_BTN);
-		return isControlDisplayed(driver,F1_AtoOrderPageUi.VERIFY_MAK_PRICE_BTN);
+		return isControlUndisplayed(driver,F1_AtoOrderPageUi.MAK_PRICE_BTN);
 	}
 
 	public boolean verifyNoDisplayMTL() {
-		waitForElementVisible(driver,F1_AtoOrderPageUi.VERIFY_MTL_PRICE_BTN);
-		return isControlDisplayed(driver,F1_AtoOrderPageUi.VERIFY_MTL_PRICE_BTN);
+		return isControlUndisplayed(driver,F1_AtoOrderPageUi.MTL_PRICE_BTN);
 	}
 
 
