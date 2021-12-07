@@ -29,5 +29,5 @@ public class OrderPageUi {
 	public static final String MTL_PRICE_BTN = "//div[@class='styles__SuggestionContainer-sc-ooog9b-1 jpVvgX']/div[text()='MTL']";
 
 
-
+	public static final String DISPLAY_OTP = "//div[text()='Xác thực OTP']";
 }

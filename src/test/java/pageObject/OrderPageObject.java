@@ -1,6 +1,7 @@
 package pageObject;
 
 import actions.AbstractPage;
+import actions.Constants;
 import org.openqa.selenium.*;
 import pageUis.F1_AtoOrderPageUi;
 import pageUis.OrderPageUi;
@@ -10,6 +11,7 @@ import java.util.List;
 
 public class OrderPageObject extends AbstractPage{
 	WebDriver driver;
+	WebElement element;
 
 	public OrderPageObject(WebDriver mappingDriver) {
 
@@ -42,9 +44,19 @@ public class OrderPageObject extends AbstractPage{
 		clickToElement(driver, OrderPageUi.PRICE_INPUT);
 	}
 
+	public void clearToPriceInputWithKeys() {
+		waitForElementVisible(driver, OrderPageUi.PRICE_INPUT);
+		clearElementInTextboxbyKeys(driver, OrderPageUi.PRICE_INPUT);
+	}
+
 	public void clickToMassInput() {
 		waitForElementVisible(driver, OrderPageUi.MASS_INPUT);
 		clickToElement(driver, OrderPageUi.MASS_INPUT);
+	}
+
+	public void clearToMassInputWithKeys() {
+		waitForElementVisible(driver, OrderPageUi.MASS_INPUT);
+		clearElementInTextboxbyKeys(driver, OrderPageUi.MASS_INPUT);
 	}
 
 	public void sendKeyMassInput(String value) {
@@ -60,15 +72,23 @@ public class OrderPageObject extends AbstractPage{
 		waitForElementVisible(driver, OrderPageUi.ATO_PRICE_INPUT);
 		sendkeyToElement(driver,OrderPageUi.ATO_PRICE_INPUT,value);
 	}
+
+	public void clickPriceInputByJS() {
+		waitForElementVisible(driver, OrderPageUi.PRICE_INPUT);
+		clickToElementbyJS(driver,OrderPageUi.PRICE_INPUT);
+	}
+
 	public void clearPriceInput() {
 		waitForElementVisible(driver,OrderPageUi.PRICE_INPUT);
 		clearElementInTextbox(driver,OrderPageUi.PRICE_INPUT);
 	}
 
-	public void clearPriceInputWithJavascript() {
+
+	public void clearPriceInputByJS() {
 		waitForElementVisible(driver,OrderPageUi.PRICE_INPUT);
+		 element =  driver.findElement(By.xpath(OrderPageUi.PRICE_INPUT));
 		JavascriptExecutor js = (JavascriptExecutor)driver;
-		js.executeScript("arguments[0].value = '';", OrderPageUi.PRICE_INPUT);
+		js.executeScript("arguments[0].value = '';",element );
 	}
 
 
@@ -120,4 +140,19 @@ public class OrderPageObject extends AbstractPage{
 		waitForElementVisible(driver, OrderPageUi.GETTEXT_TC_PRICE);
 		clickToElement(driver,OrderPageUi.GETTEXT_TC_PRICE);
 	}
+
+	public boolean isDisplayedOTP() {
+		overrideGlobalTimeout(driver, Constants.SHORT_TIME_OUT);
+		List<WebElement> elements = driver.findElements(By.xpath(OrderPageUi.DISPLAY_OTP));
+		if (elements.size() == 0)
+		{
+			return false;
+		}
+		else
+		{
+			return true;
+		}
+
+	}
+
 }

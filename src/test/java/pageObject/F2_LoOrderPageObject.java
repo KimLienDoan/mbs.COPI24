@@ -16,8 +16,9 @@ public class F2_LoOrderPageObject extends AbstractPage{
 	}
 	//LO
 	public String getTextHigherCeilingPrice(){
+		waitForElementVisible(driver, OrderPageUi.GETTEXT_CEILING_PRICE);
 		String ceilingPrice = getTextElement(driver, OrderPageUi.GETTEXT_CEILING_PRICE);
-		float highCeilingPrice1 = Float.parseFloat(ceilingPrice) + 10;
+		float highCeilingPrice1 = Float.parseFloat(ceilingPrice) + 20;
 		return Float.toString(highCeilingPrice1);
 	}
 	public String getTextLowFloorPrice(){
@@ -42,18 +43,21 @@ public class F2_LoOrderPageObject extends AbstractPage{
 		float TCPrice1 = (float) (Float.parseFloat(TCPrice)+ 0.2534);
 		return Float.toString(TCPrice1);
 	}
+
 	public String getTextInputPriceBetween10And50WithStep50() {
 		waitForElementVisible(driver,OrderPageUi.GETTEXT_TC_PRICE);
 		String TCPrice = getTextElement(driver,OrderPageUi.GETTEXT_TC_PRICE);
 		float TCPrice1 = (float) (Float.parseFloat(TCPrice)+ 0.05);
 		return Float.toString(TCPrice1);
 	}
+
 	public String getTextInputPriceBetween10And50WithStep10() {
 		waitForElementVisible(driver,OrderPageUi.GETTEXT_TC_PRICE);
 		String TCPrice = getTextElement(driver,OrderPageUi.GETTEXT_TC_PRICE);
-		float TCPrice1 = (float) (Float.parseFloat(TCPrice)+ 0.12);
+		float TCPrice1 = (float) (Float.parseFloat(TCPrice)+ 0.11);
 		return Float.toString(TCPrice1);
 	}
+
 	public String getTextInputPriceBetween10And50WithStep1() {
 		waitForElementVisible(driver,OrderPageUi.GETTEXT_TC_PRICE);
 		String TCPrice = getTextElement(driver,OrderPageUi.GETTEXT_TC_PRICE);

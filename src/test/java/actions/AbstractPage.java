@@ -74,6 +74,12 @@ public class AbstractPage {
 		element.click();
 	}
 
+	public void clickToElementbyJS(WebDriver driver, String locator) {
+		WebElement element = driver.findElement(By.id(locator));
+		JavascriptExecutor js = (JavascriptExecutor)driver;
+		js.executeScript("arguments[0].click();", element);
+	}
+
 	public void clickToElement(WebDriver driver, String locator, String... values) {
 		locator = String.format(locator, (Object[]) values);
 		element = driver.findElement(By.xpath(locator));
@@ -83,6 +89,16 @@ public class AbstractPage {
 	public void clearElementInTextbox(WebDriver driver, String locator) {
 		element = driver.findElement(By.xpath(locator));
 		element.clear();
+	}
+	public void clearElementInTextboxbyKeys(WebDriver driver, String locator) {
+		element = driver.findElement(By.xpath(locator));
+		element.sendKeys(Keys.CONTROL+ "a");
+		element.sendKeys(Keys.DELETE);
+	}
+
+	public void clearElementInTextbox2(WebDriver driver, String locator) {
+		element = driver.findElement(By.xpath(locator));
+
 	}
 
 	public void sendkeyToElement(WebDriver driver, String locator, String value) {
