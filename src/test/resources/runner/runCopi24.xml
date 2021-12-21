@@ -15,9 +15,9 @@
 		<parameter name="browser" value="chrome" />
 		<classes>
 
-			<class name="testcases.F1_ATO_Order" />
+<!--			<class name="testcases.F1_ATO_Order" />-->
 
-
+			<class name="testcases.F2_LO_Order" />
 
 
 		</classes>

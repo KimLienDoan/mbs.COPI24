@@ -10,8 +10,6 @@ import pageObject.F0_LoginPageObject;
 import pageObject.F1_AtoOrderPageObject;
 import pageObject.F2_LoOrderPageObject;
 import pageObject.OrderPageObject;
-import pageUis.F2_LoOrderPageUi;
-import pageUis.OrderPageUi;
 
 import java.util.concurrent.TimeUnit;
 
@@ -61,13 +59,14 @@ public class F1_ATO_Order extends AbstractTest {
 		order.clickToAccountDropDown(order.getTextAccountWithTK1());
 		log.info("Nhập mã CK");
 		order.inputToCKCode(exchangesCodeHNX);
+		Thread.sleep(1000);
 		log.info("Click button price ");
 		order.clickToPriceInput();
 		log.info("Verify ko hiển thị giá ATO ");
 		verifyTrue(orderATO.verifyNoDisplayATO());
 	}
 
-//	@Test(priority = 2)
+	@Test(priority = 2)
 	public void TC02_ATO_UPCOM_Trade() {
 		log.info("Nhập mã CK");
 		order.inputToCKCode(exchangesCodeUPCOM);
@@ -77,7 +76,7 @@ public class F1_ATO_Order extends AbstractTest {
 		verifyTrue(orderATO.verifyNoDisplayATO());
 	}
 
-//	@Test(priority = 3)
+	@Test(priority = 3)
 	public void TC03_ATO_HSX_CCQETF_Trade()  {
 		log.info("Nhập mã CK");
 		order.inputToCKCode(exchangesCodeHSX_CCQ);
@@ -395,7 +394,7 @@ public class F1_ATO_Order extends AbstractTest {
 		}
 	}
 
-	/*Nhập lệnh cổ phiếu /CCQ ETF HSX có bước giá lẻ hợp lệ: 10 ≤ giá nhập< 50: Bước giá 10 */
+	/*Nhập lệnh CCQ ETF sàn HSX có bước giá là 1 đồng*/
 //	@Test(priority = 14)
 	public void TC14_LO_HSX_CCQ_ETF_PriceWithStep1() throws InterruptedException {
 		log.info("Nhập mã CK");
@@ -459,7 +458,7 @@ public class F1_ATO_Order extends AbstractTest {
 	}
 
 	//HSX- MP - ko dat dc lenh
-	@Test(priority = 18)
+//	@Test(priority = 18)
 	public void TC18_MP_HSX_Trade() throws InterruptedException {
 
 		log.info("Nhập mã CK");
@@ -473,7 +472,7 @@ public class F1_ATO_Order extends AbstractTest {
 	}
 
 	//HSX- MOK-ko đặt được lệnh
-	@Test(priority = 19)
+//	@Test(priority = 19)
 	public void TC19_MOK_HSX_Trade() throws InterruptedException {
 		log.info("Nhập mã CK");
 		order.inputToCKCode(exchangesCodeHSX);
@@ -486,7 +485,7 @@ public class F1_ATO_Order extends AbstractTest {
 	}
 
 	//HNX- MAK-ko đặt được lệnh
-	@Test(priority = 20)
+//	@Test(priority = 20)
 	public void TC20_MAK_HSX_Trade(){
 		log.info("Nhập mã CK");
 		order.inputToCKCode(exchangesCodeHSX);
@@ -499,7 +498,7 @@ public class F1_ATO_Order extends AbstractTest {
 	}
 
 	//HNX- MTL ko đặt được lệnh
-	@Test(priority = 21)
+//	@Test(priority = 21)
 	public void TC21_MTL_HSX_Trade(){
 		log.info("Nhập mã CK");
 		order.inputToCKCode(exchangesCodeHSX);
@@ -512,7 +511,7 @@ public class F1_ATO_Order extends AbstractTest {
 	}
 
 	//ATC-HNX-success
-	@Test(priority = 22)
+//	@Test(priority = 22)
 	public void TC22_ATC_HNX_Trade() throws InterruptedException {
 		log.info("Nhập mã CK");
 		order.inputToCKCode(exchangesCodeHNX);
@@ -549,7 +548,7 @@ public class F1_ATO_Order extends AbstractTest {
 	}
 
 	//ATC-HSX-success
-	@Test(priority = 22)
+//	@Test(priority = 22)
 	public void TC22_ATC_HSX_Trade() throws InterruptedException {
 		log.info("Nhập mã CK");
 		order.inputToCKCode(exchangesCodeHSX);
@@ -586,7 +585,7 @@ public class F1_ATO_Order extends AbstractTest {
 	}
 
 	//PLO-HSX-success
-	@Test(priority = 23)
+//	@Test(priority = 23)
 	public void TC23_PLO_HSX_Trade() throws InterruptedException {
 		log.info("Nhập mã CK");
 		order.inputToCKCode(exchangesCodeHSX);
@@ -623,7 +622,7 @@ public class F1_ATO_Order extends AbstractTest {
 	}
 
 	//PLO-HNX-success
-	@Test(priority = 24)
+//	@Test(priority = 24)
 	public void TC24_PLO_HSX_Trade() throws InterruptedException {
 		log.info("Nhập mã CK");
 		order.inputToCKCode(exchangesCodeHNX);
@@ -658,7 +657,7 @@ public class F1_ATO_Order extends AbstractTest {
 	}
 
 	//PLO-HNX-success
-	@Test(priority = 23)
+//	@Test(priority = 23)
 	public void TC23_PLO_HNX_Trade(){
 		log.info("Nhập mã CK");
 		order.inputToCKCode(exchangesCodeHNX);
