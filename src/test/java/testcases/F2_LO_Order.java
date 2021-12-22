@@ -307,7 +307,6 @@ public class F2_LO_Order extends AbstractTest {
 		log.info("Expect: Thong bao: Giá đặt không hợp lệ (Bước giá 10đ)");
 		verifyTrue(orderLO.verifyBuyInvaildStepPrice10());
 	}
-
 	@AfterClass
 	public void afterClass() {
 		driver.quit();

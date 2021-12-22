@@ -99,7 +99,7 @@ public class F1_ATO_Order extends AbstractTest {
 		verifyTrue(orderLO.verifyBuySuccess());
 	}
 
-//	@Test(priority = 4)
+	@Test(priority = 4)
 	public void TC04_LO_HSX_PriceHigherCeiling() throws InterruptedException {
 		Thread.sleep(3000);
 		log.info("Nhập mã CK");
@@ -121,8 +121,7 @@ public class F1_ATO_Order extends AbstractTest {
 		log.info("expect : Giá phải nằm trong khoảng từ Sàn đến Trần");
 		verifyTrue(orderLO.verifyLoHsxWithFloorCeilingPrice());
 	}
-
-//	@Test(priority = 5)
+	@Test(priority = 5)
 	public void TC05_LO_HSX_PriceLowerFloor() throws InterruptedException {
 		log.info("Nhập mã CK");
 		order.inputToCKCode(exchangesCodeHSX_CCQ);
@@ -146,7 +145,7 @@ public class F1_ATO_Order extends AbstractTest {
 	}
 
 	//LO-Nhập lệnh cổ phiếu sàn HNX/UPCOM với bước giá 100
-//	@Test(priority = 6)
+	@Test(priority = 6)
 	public void TC06_LO_HNX_PriceStep100() throws InterruptedException {
 		Thread.sleep(500);
 		log.info("Nhập mã CK");
@@ -184,7 +183,7 @@ public class F1_ATO_Order extends AbstractTest {
 	}
 
 	//LO-Nhập lệnh cổ phiếu sàn HNX khác bước giá 100
-//	@Test(priority = 7)
+	@Test(priority = 7)
 	public void TC07_LO_HNX_PriceOtherStep100() throws InterruptedException {
 		Thread.sleep(5000);
 		log.info("Nhập mã CK");
@@ -210,7 +209,7 @@ public class F1_ATO_Order extends AbstractTest {
 	}
 
 	//LO-Nhập lệnh cổ phiếu sàn UPCOM với bước giá 100
-//	@Test(priority = 8)
+	@Test(priority = 8)
 	public void TC08_LO_UPCOM_PriceStep100() throws InterruptedException {
 		Thread.sleep(1000);
 		log.info("Nhập mã CK");
@@ -244,7 +243,7 @@ public class F1_ATO_Order extends AbstractTest {
 		}
 	}
 
-//	@Test(priority = 9)
+	@Test(priority = 9)
 	public void TC09_LO_UPCOM_PriceOtherStep100() {
 		log.info("Nhập mã CK");
 		order.inputToCKCode(exchangesCodeUPCOM);
@@ -265,7 +264,7 @@ public class F1_ATO_Order extends AbstractTest {
 	}
 
 	//Nhập lệnh cổ phiếu CCQ đóng HSX có bước giá lẻ hợp lệ - Giá nhập <10: Bước giá 10
-//	@Test(priority = 10)
+	@Test(priority = 10)
 	public void TC10_LO_HSX_CCQ_Close_PriceLower10WithStep10() throws InterruptedException {
 		log.info("Nhập mã CK");
 		order.inputToCKCode(exchangesCodeHSX_Lower10);
@@ -301,7 +300,7 @@ public class F1_ATO_Order extends AbstractTest {
 	}
 
 	//Nhập lệnh cổ phiếu /CCQ đóng HSX có bước giá lẻ hợp lệ 10 ≤ giá nhập< 50: Bước giá 50
-//	@Test(priority = 11)
+	@Test(priority = 11)
 	public void TC11_LO_HSX_CCQ_Close_PriceBetween10And50WithStep50() throws InterruptedException {
 		log.info("Nhập mã CK");
 		order.inputToCKCode(exchangesCodeHSX_Between_10_50);
@@ -337,7 +336,7 @@ public class F1_ATO_Order extends AbstractTest {
 
 	/*Nhập lệnh cổ phiếu /CCQ ETF HSX có bước giá lẻ hợp lệ: 10 ≤ giá nhập< 50: Bước giá 10 >Giá không hợp lệ */
 	// BUG: stagging ko phan biet dc CCQ dong va CCQ ETF
-//	@Test(priority = 12)
+	@Test(priority = 12)
 	public void TC12_LO_HSX_CCQ_Close_PriceBetween10And50WithStep10() {
 		log.info("Nhập mã CK");
 		order.inputToCKCode(exchangesCodeHSX_Between_10_50);
@@ -353,12 +352,15 @@ public class F1_ATO_Order extends AbstractTest {
 		log.info("Click button 'Đặt lệnh mua'");
 		order.clickToBuyOrder();
 
+		log.info("click button Xác nhận mua");
+		order.clicktoBuyConfirm();
+
 		log.info("Expect: Thong bao: Giá đặt không hợp lệ (Bước giá 50đ)");
 		verifyTrue(orderLO.verifyBuyInvaildStepPrice50());
 	}
 
 	/*Nhập lệnh cổ phiếu /CCQ ETF HSX có bước giá lẻ hợp lệ: 10 ≤ giá nhập< 50: Bước giá 10 */
-//	@Test(priority = 13)
+	@Test(priority = 13)
 	public void TC13_LO_HSX_CCQ_ETF_PriceWithStep10() throws InterruptedException {
 		Thread.sleep(5000);
 		log.info("Nhập mã CK");
@@ -395,7 +397,7 @@ public class F1_ATO_Order extends AbstractTest {
 	}
 
 	/*Nhập lệnh CCQ ETF sàn HSX có bước giá là 1 đồng*/
-//	@Test(priority = 14)
+	@Test(priority = 14)
 	public void TC14_LO_HSX_CCQ_ETF_PriceWithStep1() throws InterruptedException {
 		log.info("Nhập mã CK");
 		order.inputToCKCode(exchangesCodeHSX_CCQ);
@@ -417,10 +419,9 @@ public class F1_ATO_Order extends AbstractTest {
 		verifyTrue(orderLO.verifyBuyInvaildStepPrice10());
 	}
 
-	//HNX- MP - ko dat dc lenh
-//	@Test(priority = 15)
+	//HNX- MP - ko đặt đc lệnh
+	@Test(priority = 15)
 	public void TC15_MP_HNX_Trade() throws InterruptedException {
-
 		log.info("Nhập mã CK");
 		order.inputToCKCode(exchangesCodeHNX);
 
@@ -431,8 +432,9 @@ public class F1_ATO_Order extends AbstractTest {
 		verifyTrue(orderATO.verifyNoDisplayMP());
 	}
 
-	//HNX- MOK-ko đặt được lệnh
-//	@Test(priority = 16)
+
+	//HNX- MOK-success
+	@Test(priority = 16)
 	public void TC16_MOK_HNX_Trade() throws InterruptedException {
 		log.info("Nhập mã CK");
 		order.inputToCKCode(exchangesCodeHNX);
@@ -440,25 +442,72 @@ public class F1_ATO_Order extends AbstractTest {
 		log.info("Click button price - chọn lệnh MOK ");
 		order.clickToPriceInput();
 
-		log.info("Verify Thông báo ");
-		verifyTrue(orderATO.verifyNoDisplayMOK());
+		order.clickToMokOrderPrice();
+
+		log.info("SendKey MP Mass");
+		order.clearToMassInputWithKeys();
+		Thread.sleep(500);
+		order.sendKeyMassInput(mass);
+
+		log.info("Click button 'Đặt lệnh mua'");
+		order.clickToBuyOrder();
+
+		log.info("click button Xác nhận mua");
+		order.clicktoBuyConfirm();
+
+		if (order.isDisplayedOTP() == true) {
+			log.info("Nhập SMS OTP");
+			order.clickToSMSOTP();
+			order.senkeyOTPCode("123456");
+			order.clickConfirmBtn();
+			log.info("Expect: Thong bao: Dat lenh thanh cong");
+			verifyTrue(orderLO.verifyBuySuccess());
+
+		} else {
+
+			log.info("Expect: Thong bao: Dat lenh thanh cong");
+			verifyTrue(orderLO.verifyBuySuccess());
+		}
 	}
 
-	//HNX- MAK-ko đặt được lệnh
-//	@Test(priority = 17)
-	public void TC17_MAK_HNX_Trade(){
+	//HNX- MAK-success
+	@Test(priority = 17)
+	public void TC17_MAK_HNX_Trade() throws InterruptedException {
 		log.info("Nhập mã CK");
 		order.inputToCKCode(exchangesCodeHNX);
 
 		log.info("Click button price - chọn lệnh MOK ");
 		order.clickToPriceInput();
+		order.clickToMakOrderPrice();
 
-		log.info("Verify Thông báo ");
-		verifyTrue(orderATO.verifyNoDisplayMAK());
+		log.info("SendKey MP Mass");
+		order.clearToMassInputWithKeys();
+		Thread.sleep(500);
+		order.sendKeyMassInput(mass);
+
+		log.info("Click button 'Đặt lệnh mua'");
+		order.clickToBuyOrder();
+
+		log.info("click button Xác nhận mua");
+		order.clicktoBuyConfirm();
+
+		if (order.isDisplayedOTP() == true) {
+			log.info("Nhập SMS OTP");
+			order.clickToSMSOTP();
+			order.senkeyOTPCode("123456");
+			order.clickConfirmBtn();
+			log.info("Expect: Thong bao: Dat lenh thanh cong");
+			verifyTrue(orderLO.verifyBuySuccess());
+
+		} else {
+
+			log.info("Expect: Thong bao: Dat lenh thanh cong");
+			verifyTrue(orderLO.verifyBuySuccess());
+		}
 	}
 
 	//HSX- MP - ko dat dc lenh
-//	@Test(priority = 18)
+	@Test(priority = 18)
 	public void TC18_MP_HSX_Trade() throws InterruptedException {
 
 		log.info("Nhập mã CK");
@@ -472,7 +521,7 @@ public class F1_ATO_Order extends AbstractTest {
 	}
 
 	//HSX- MOK-ko đặt được lệnh
-//	@Test(priority = 19)
+	@Test(priority = 19)
 	public void TC19_MOK_HSX_Trade() throws InterruptedException {
 		log.info("Nhập mã CK");
 		order.inputToCKCode(exchangesCodeHSX);
@@ -485,7 +534,7 @@ public class F1_ATO_Order extends AbstractTest {
 	}
 
 	//HNX- MAK-ko đặt được lệnh
-//	@Test(priority = 20)
+	@Test(priority = 20)
 	public void TC20_MAK_HSX_Trade(){
 		log.info("Nhập mã CK");
 		order.inputToCKCode(exchangesCodeHSX);
@@ -498,7 +547,7 @@ public class F1_ATO_Order extends AbstractTest {
 	}
 
 	//HNX- MTL ko đặt được lệnh
-//	@Test(priority = 21)
+	@Test(priority = 21)
 	public void TC21_MTL_HSX_Trade(){
 		log.info("Nhập mã CK");
 		order.inputToCKCode(exchangesCodeHSX);
@@ -511,7 +560,7 @@ public class F1_ATO_Order extends AbstractTest {
 	}
 
 	//ATC-HNX-success
-//	@Test(priority = 22)
+	@Test(priority = 22)
 	public void TC22_ATC_HNX_Trade() throws InterruptedException {
 		log.info("Nhập mã CK");
 		order.inputToCKCode(exchangesCodeHNX);
@@ -548,7 +597,7 @@ public class F1_ATO_Order extends AbstractTest {
 	}
 
 	//ATC-HSX-success
-//	@Test(priority = 22)
+	@Test(priority = 22)
 	public void TC22_ATC_HSX_Trade() throws InterruptedException {
 		log.info("Nhập mã CK");
 		order.inputToCKCode(exchangesCodeHSX);
@@ -585,7 +634,7 @@ public class F1_ATO_Order extends AbstractTest {
 	}
 
 	//PLO-HSX-success
-//	@Test(priority = 23)
+	@Test(priority = 23)
 	public void TC23_PLO_HSX_Trade() throws InterruptedException {
 		log.info("Nhập mã CK");
 		order.inputToCKCode(exchangesCodeHSX);
@@ -622,7 +671,7 @@ public class F1_ATO_Order extends AbstractTest {
 	}
 
 	//PLO-HNX-success
-//	@Test(priority = 24)
+	@Test(priority = 24)
 	public void TC24_PLO_HSX_Trade() throws InterruptedException {
 		log.info("Nhập mã CK");
 		order.inputToCKCode(exchangesCodeHNX);
@@ -656,17 +705,17 @@ public class F1_ATO_Order extends AbstractTest {
 		}
 	}
 
-	//PLO-HNX-success
-//	@Test(priority = 23)
-	public void TC23_PLO_HNX_Trade(){
+	//MTL-HSX-success
+	@Test(priority = 25)
+	public void TC25_MTL_HSX_Trade(){
 		log.info("Nhập mã CK");
 		order.inputToCKCode(exchangesCodeHNX);
 
-		log.info("Click button price - chọn lệnh MAK ");
+		log.info("Click button price - chọn lệnh MTL ");
 		order.clearToPriceInputWithKeys();
-		order.clickToPloOrderPrice();
+		order.clickToMtlOrderPrice();
 
-		log.info("SendKey MAK Mass");
+		log.info("SendKey MTL Mass");
 		order.clearToMassInputWithKeys();
 		order.sendKeyMassInput(mass);
 
@@ -693,8 +742,8 @@ public class F1_ATO_Order extends AbstractTest {
 	}
 
 	//MTL-HNX
-//	@Test(priority = 18)
-	public void TC1_MTL_HNX_Trade(){
+	@Test(priority = 25)
+	public void TC25_MTL_HNX_Trade(){
 		log.info("Nhập mã CK");
 		order.inputToCKCode(exchangesCodeHNX);
 
@@ -721,22 +770,6 @@ public class F1_ATO_Order extends AbstractTest {
 		verifyTrue(orderLO.verifyBuySuccess());
 	}
 
-
-	//MP -HSX
-//	@Test
-	public void mpExchangesHSX(){
-		log.info("Nhập mã CK");
-		order.inputToCKCode(exchangesCodeHSX_CCQ);
-		log.info("Click button price - chọn lệnh MP ");
-		order.clickToPriceInput();
-		order.clickToMpOrderPrice();
-		log.info("SendKey MP Mass");
-		order.sendKeyMassInput(mass);
-		log.info("Click button 'Đặt lệnh mua'");
-		order.clickToBuyOrder();
-		log.info("Verify Thông báo ");
-		verifyTrue(orderATO.verifyNoDisplayMP());
-	}
 
 
 	@AfterClass
